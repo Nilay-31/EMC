@@ -7,9 +7,9 @@ def main():
     uploaded_file = st.file_uploader("Email_Marketing_Campaign_Dataset_Rounded.xlsx", type=["xlsx", "csv"])
     
     if uploaded_file is not None:
-       dt= pd.read_excel(uploaded_file) if uploaded_file.name.endswith('.xlsx') else pd.read_csv(uploaded_file)
-        #st.write("Uploaded Dataset:")
-        #st.write(dt.head())
+       data= pd.read_excel(uploaded_file) if uploaded_file.name.endswith('.xlsx') else pd.read_csv(uploaded_file)
+        st.write("Uploaded Dataset:")
+        st.write(dt.head())
         
         if st.button("Predict"):
             # Load the saved model
@@ -19,7 +19,7 @@ def main():
             predictions = loaded_model.predict(dt)
             data['Predicted_Open'] = predictions
             st.write("Predicted Results:")
-            st.write(dt)
+            st.write(data)
 
 if __name__ == '__main__':
     main()
