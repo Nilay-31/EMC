@@ -1,3 +1,5 @@
+!pip install openpyxl
+
 import streamlit as st  # For deployment
 import pandas as pd  # For data handling
 
