@@ -8,7 +8,7 @@ def main():
     
     if uploaded_file is not None:
        dt= pd.read_excel(uploaded_file) if uploaded_file.name.endswith('.xlsx') else pd.read_csv(uploaded_file)
-        st.write("Uploaded Dataset:")
+        #st.write("Uploaded Dataset:")
         st.write(dt.head())
         
         if st.button("Predict"):
