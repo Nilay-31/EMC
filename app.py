@@ -1,4 +1,4 @@
-import streamlit as st# For deployment
+import streamlit as st # For deployment
 import pandas as pd
 def main():
     st.title("Email Marketing Campaign Success Predictor")
