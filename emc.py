@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
-import joblib  # For loading the saved model
 import os  # For handling file paths
+import joblib
 
 def main():
     st.title("Email Marketing Campaign Success Predictor")
