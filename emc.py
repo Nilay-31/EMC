@@ -1,6 +1,5 @@
 import streamlit as st  # For deployment
 import pandas as pd  # For data handling
-import joblib  # Required for loading models (you can remove this if not using model loading)
 
 def main():
     st.title("Email Marketing Campaign Success Predictor")
@@ -27,19 +26,6 @@ def main():
         except Exception as e:
             st.error(f"Error reading the file: {e}")
             return
-
-        # Add a placeholder for model predictions
-        if st.button("Predict"):
-            st.write("Model predictions are currently disabled.")
-          
-            try:
-                loaded_model = joblib.load("email_campaign_model.pkl")
-                predictions = loaded_model.predict(data)
-                data['Predicted_Open'] = predictions
-                st.write("Predicted Results:")
-                st.write(data)
-            except Exception as e:
-                 st.error(f"Error during prediction: {e}")
 
 if __name__ == '__main__':
     main()
