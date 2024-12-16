@@ -3,7 +3,7 @@ def main():
     st.title("Email Marketing Campaign Success Predictor")
     st.write("Upload a file to analyze.")
     
-    uploaded_file = st.file_uploader("C/content/Email_Marketing_Campaign_Dataset_Rounded.xlsx", type=["xlsx", "csv"])
+    uploaded_file = st.file_uploader("Email_Marketing_Campaign_Dataset_Rounded.xlsx", type=["xlsx", "csv"])
     
     if uploaded_file is not None:
         data = pd.read_excel(uploaded_file) if uploaded_file.name.endswith('.xlsx') else pd.read_csv(uploaded_file)
