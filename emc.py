@@ -1,5 +1,6 @@
 import streamlit as st  # For deployment
 import pandas as pd  # For data handling
+import joblib  # To load pre-trained model and scaler
 
 def main():
     st.title('Email Marketing Campaign Success Predictor')
@@ -17,12 +18,26 @@ def main():
     # Encode device type
     device_type = 1 if device_type == 'Mobile' else 0
 
-    # Prediction
+    # Prepare user data
     user_data = [[age, emails_opened, emails_clicked, purchase_history, time_spent, days_since_last_open, engagement_score, device_type]]
-    user_data_scaled = scaler.transform(user_data)
-    prediction = model.predict(user_data_scaled)
 
-    st.write('Prediction:', 'Opened' if prediction[0] == 1 else 'Not Opened')
+    try:
+        # Load scaler and model
+        scaler = joblib.load('scaler.pkl')  # Path to your scaler file
+        model = joblib.load('model.pkl')    # Path to your model file
+
+        # Scale the user data
+        user_data_scaled = scaler.transform(user_data)
+
+        # Make a prediction
+        prediction = model.predict(user_data_scaled)
+
+        # Display the prediction
+        st.write('Prediction:', 'Opened' if prediction[0] == 1 else 'Not Opened')
+    except FileNotFoundError as e:
+        st.error(f"File not found: {e.filename}. Ensure the model and scaler files are uploaded.")
+    except Exception as e:
+        st.error(f"An error occurred: {str(e)}")
 
 if __name__ == '__main__':
     main()
