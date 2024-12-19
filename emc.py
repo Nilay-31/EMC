@@ -17,7 +17,11 @@ def main():
     # Encode device type
     device_type = 1 if device_type == 'Mobile' else 0
 
-    # Prediction
+    from sklearn.preprocessing import StandardScaler
+    # Initialize and fit the scaler
+    scaler = StandardScaler()
+
+  # Prediction
     user_data = [[age, emails_opened, emails_clicked, purchase_history, time_spent, days_since_last_open, engagement_score, device_type]]
     user_data_scaled = scaler.transform(user_data)
     prediction = model.predict(user_data_scaled)
