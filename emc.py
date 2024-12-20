@@ -5,8 +5,8 @@ import joblib  # For loading pre-trained models
 @st.cache_resource
 def load_model_and_scaler():
     try:
-        scaler = joblib.load('scaler.pkl')
-        model = joblib.load('model.pkl')
+        scaler = joblib.load('email_open_prediction_model.pkl')
+        model = joblib.load('email_open_prediction_model.pkl')
         return scaler, model
     except Exception as e:
         st.error(f"Error loading model or scaler: {str(e)}")
