@@ -1,7 +1,7 @@
 import streamlit as st  # For deployment
 import pandas as pd  # For data handling
 import numpy as np  # For numerical operations
-from sklearn.externals import joblib  # For model loading
+import joblib  # For model loading
 from sklearn.preprocessing import StandardScaler  # For feature scaling
 
 # Load the trained model and scaler
