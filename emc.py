@@ -1,7 +1,7 @@
 import streamlit as st  # For deployment
 import pandas as pd  # For data handling
 from sklearn.preprocessing import StandardScaler 
-scaler=StandardScale()
+scaler=StandardScaler()
 def main():
     st.title('Email Marketing Campaign Success Predictor')
 
