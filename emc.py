@@ -1,6 +1,8 @@
 import streamlit as st  # For deployment
 import pandas as pd  # For data handling
+
 def main():
+    
     st.title('Email Marketing Campaign Success Predictor')
 
     # User input
