@@ -1,5 +1,13 @@
 import streamlit as st  # For deployment
 import pandas as pd  # For data handling
+import numpy as np  # For numerical operations
+import joblib  # For model loading
+from sklearn.preprocessing import StandardScaler  # For feature scaling
+
+# Load the trained model and scaler
+model = joblib.load('email_open_prediction_model.pkl') 
+scaler = model.named_steps['scaler'] # Get the scaler from the pipeline
+
 def main():
     st.title('Email Marketing Campaign Success Predictor')
 
@@ -16,10 +24,20 @@ def main():
     # Encode device type
     device_type = 1 if device_type == 'Mobile' else 0
 
-  # Prediction
-    user_data = [[age, emails_opened, emails_clicked, purchase_history, time_spent, days_since_last_open, engagement_score, device_type]]
-    user_data_scaled = scaler.transform(user_data)
-    prediction = model.predict(user_data_scaled)
+    # Prediction
+    #The list of features used to train the model and scaler
+    user_data = [[age, emails_opened, emails_clicked, purchase_history, time_spent, days_since_last_open, engagement_score]]  
+    user_data_scaled = scaler.transform(user_data) #Transform using the loaded scaler
+    
+    # Create a new DataFrame with all features, including the encoded device type
+    input_data = pd.DataFrame([user_data[0] + [device_type]], columns=[
+        'Customer_Age', 'Emails_Opened', 'Emails_Clicked', 'Purchase_History',
+        'Time_Spent_On_Website', 'Days_Since_Last_Open',
+        'Customer_Engagement_Score', 'Device_Type'  
+    ])
+    
+    # Make prediction using the loaded model
+    prediction = model.predict(input_data)
 
     st.write('Prediction:', 'Opened' if prediction[0] == 1 else 'Not Opened')
 
