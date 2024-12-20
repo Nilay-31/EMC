@@ -1,7 +1,5 @@
 import streamlit as st  # For deployment
 import pandas as pd  # For data handling
-from scikit-learn.preprocessing import StandardScaler 
-scaler=StandardScaler()
 def main():
     st.title('Email Marketing Campaign Success Predictor')
 
