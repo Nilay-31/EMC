@@ -1,8 +1,11 @@
-import streamlit as st  # For deployment
-import pandas as pd  # For data handling
+import streamlit as st
+import pandas as pd
+import numpy as np
+import pickle
+from sklearn.preprocessing import StandardScaler
+Scaler-StandardScaler()
 
 def main():
-    
     st.title('Email Marketing Campaign Success Predictor')
 
     # User input
