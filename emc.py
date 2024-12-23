@@ -1,6 +1,10 @@
 import streamlit as st  # For deployment
 import pandas as pd  # For data handling
+import joblib  # For loading the scaler and model
 
+# Load the scaler and model
+scaler = joblib.load('scaler.pkl')  # Replace with your scaler file path
+model = joblib.load('model.pkl')  # Replace with your model file path
 
 def main():
     st.title('Email Marketing Campaign Success Predictor')
@@ -20,8 +24,8 @@ def main():
 
     # Prediction
     user_data = [[age, emails_opened, emails_clicked, purchase_history, time_spent, days_since_last_open, engagement_score, device_type]]
-    user_data_scaled = scaler.transform(user_data)
-    prediction = model.predict(user_data_scaled)
+    user_data_scaled = scaler.transform(user_data)  # Use the loaded scaler to transform input
+    prediction = model.predict(user_data_scaled)  # Use the loaded model to make predictions
 
     st.write('Prediction:', 'Opened' if prediction[0] == 1 else 'Not Opened')
 
