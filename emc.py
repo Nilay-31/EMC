@@ -1,6 +1,6 @@
 import streamlit as st  # For deployment
 import pandas as pd  # For data handling
-import StandardScaler as Scaler
+
 
 def main():
     st.title('Email Marketing Campaign Success Predictor')
