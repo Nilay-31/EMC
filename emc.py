@@ -23,3 +23,5 @@ def main():
 
     st.write('Prediction:', 'Opened' if prediction[0] == 1 else 'Not Opened')
     main()
+if_name_=="main":
+main()
