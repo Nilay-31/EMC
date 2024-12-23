@@ -24,4 +24,3 @@ def main():
     st.write('Prediction:', 'Opened' if prediction[0] == 1 else 'Not Opened')
 
 if __name__ == '__main__':
-    main()
