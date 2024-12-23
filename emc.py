@@ -1,6 +1,6 @@
 import streamlit as st  # For deployment
 import pandas as pd  # For data handling
-import joblib  # For loading the model and scaler
+#import joblib  # For loading the model and scaler
 
 # Load the model and scaler (ensure the correct paths are specified)
 model = joblib.load('model.pkl')  # Replace with your model file path
