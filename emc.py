@@ -3,8 +3,8 @@ import pandas as pd  # For data handling
 #import joblib  # For loading the model and scaler
 
 # Load the model and scaler (ensure the correct paths are specified)
-model = joblib.load('model.pkl')  # Replace with your model file path
-scaler = joblib.load('scaler.pkl')  # Replace with your scaler file path
+model = joblib.load('email_open_prediction_model.pkl')  # Replace with your model file path
+scaler = joblib.load('email_open_prediction_model.pkl')  # Replace with your scaler file path
 
 def main():
     st.title('Email Marketing Campaign Success Predictor')
