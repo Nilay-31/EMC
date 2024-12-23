@@ -1,6 +1,6 @@
 import streamlit as st  # For deployment
 import pandas as pd  # For data handling
-from sklearn.externals import joblib  # For loading the scaler and model
+import joblib  # For loading the scaler and model
 
 # Load the scaler and model
 scaler = joblib.load('scaler.pkl')  # Replace with your scaler file path
