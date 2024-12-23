@@ -1,6 +1,6 @@
 import streamlit as st  # For deployment
 import pandas as pd  # For data handling
-import joblib  # For loading the model and scaler
+
 
 # Load the model and scaler (ensure the correct paths are specified)
 model_path = joblib.load('email_open_prediction_model.pkl')  # Replace with your model file path
